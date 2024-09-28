@@ -14,8 +14,16 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-        if (! $request->expectsJson()) {
+        if (!$request->expectsJson()) {
             return route('login');
         }
+    }
+
+    protected function unauthenticated($request, array $guards)
+    {
+        return response()->json([
+            'success' => false,
+            'message' => 'Unauthorized: Invalid or missing Bearer token.',
+        ], 401);
     }
 }
