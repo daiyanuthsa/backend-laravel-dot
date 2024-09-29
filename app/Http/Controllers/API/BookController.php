@@ -89,5 +89,51 @@ class BookController extends Controller
         }
     }
 
+    public function update(Request $request, $id)
+    {
+        try {
+            $book = Book::whereHas('category', function ($query) {
+                $query->where('user_id', Auth::id());
+            })->findOrFail($id);
 
+            $validated = $request->validate([
+                'category_id' => 'sometimes|exists:categories,id',
+                'name' => 'sometimes|string|max:255',
+                'year' => 'sometimes|integer',
+                'author' => 'sometimes|string|max:255',
+            ]);
+
+            if (isset($validated['category_id'])) {
+                // Verify that the new category belongs to the authenticated user
+                Category::where('id', $validated['category_id'])
+                    ->where('user_id', Auth::id())
+                    ->firstOrFail();
+            }
+
+            $book->update($validated);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Book updated successfully',
+                'data' => $book,
+            ]);
+        } catch (ValidationException $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'The given data was invalid.',
+                'errors' => $e->errors(),
+            ], 422);
+        } catch (ModelNotFoundException $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Book not found or the specified category does not exist or does not belong to you.',
+            ], 404);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred while updating the book.',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+    }
 }
