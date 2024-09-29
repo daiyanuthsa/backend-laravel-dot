@@ -19,14 +19,31 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::whereHas('category', function ($query) {
-            $query->where('userId', Auth::id());
-        })->get();
-        return response()->json([
-            'success' => true,
-            'message' => 'Book get successful',
-            'data' => $books,
-        ], 200);
+        try {
+            $books = Book::whereHas('category', function ($query) {
+                $query->where('user_id', Auth::id());
+            })->get();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Book get successful',
+                'data' => $books,
+            ], 200);
+
+        } catch (ModelNotFoundException $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Books does not exist or does not belong to you.',
+            ], 404);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred while creating the book.',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+
+
 
     }
 
