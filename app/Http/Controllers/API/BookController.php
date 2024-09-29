@@ -42,7 +42,7 @@ class BookController extends Controller
 
             // Verify that the category belongs to the authenticated user
             $category = Category::where('id', $validated['category_id'])
-                ->where('userId', Auth::id())
+                ->where('user_id', Auth::id())
                 ->firstOrFail();
 
             $book = Book::create($validated);
