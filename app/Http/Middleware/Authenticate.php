@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
-
+use Illuminate\Http\Exceptions\HttpResponseException;
 class Authenticate extends Middleware
 {
     /**
@@ -19,11 +19,15 @@ class Authenticate extends Middleware
         }
     }
 
+    /**
+     * Override unauthenticated method to return custom response.
+     */
     protected function unauthenticated($request, array $guards)
     {
-        return response()->json([
+        // Custom response for unauthorized access
+        throw new HttpResponseException(response()->json([
             'success' => false,
-            'message' => 'Unauthorized: Invalid or missing Bearer token.',
-        ], 401);
+            'message' => 'You are not authorized to access this resource. Please log in.',
+        ], 401));
     }
 }

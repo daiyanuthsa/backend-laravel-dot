@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\BookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::redirect('/', '/dashboard');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('pages.dashboard-books');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+Route::middleware('auth')->group(function () {
+    Route::prefix('book')->group(function () {
+        Route::get('/', [BookController::class, 'index'])->name('book');
+        Route::get('/create', [BookController::class, 'create'])->name('book-create');
+    });
+
+});
+require __DIR__ . '/auth.php';
