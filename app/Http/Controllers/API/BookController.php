@@ -136,4 +136,31 @@ class BookController extends Controller
             ], 500);
         }
     }
+
+    public function destroy($id)
+    {
+        try {
+            $book = Book::whereHas('category', function ($query) {
+                $query->where('user_id', Auth::id());
+            })->findOrFail($id);
+
+            $book->delete();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Book deleted successfully',
+            ]);
+        } catch (ModelNotFoundException $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Book not found.',
+            ], 404);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred while deleting the book.',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+    }
 }
