@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\BookController;
 use App\Http\Controllers\API\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,12 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('create', [CategoryController::class, 'store']);
         Route::put('edit/{id}', [CategoryController::class, 'update']);
         Route::post('delete/{id}', [CategoryController::class, 'delete']);
+    });
+
+    Route::prefix('book')->group(function () {
+        Route::get('/', [BookController::class, 'index']);
+        Route::post('create', [BookController::class, 'store']);
+        
     });
 
 });
