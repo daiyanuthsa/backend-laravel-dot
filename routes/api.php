@@ -37,6 +37,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/', [BookController::class, 'index']);
         Route::post('create', [BookController::class, 'store']);
         Route::post('edit/{id}', [BookController::class, 'update']);
+        Route::post('delete/{id}', [BookController::class, 'destroy']);
     });
 
 });
