@@ -64,9 +64,9 @@
                                                 </label>
                                                 <select name="categories_id" class="form-control" required>
                                                     <option value="" selected hidden>Select Category</option>
-                                                    {{-- @foreach ($categories as $category)
+                                                    @foreach ($categories as $category)
                                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                                    @endforeach --}}
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>

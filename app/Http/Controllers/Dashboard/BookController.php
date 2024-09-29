@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 
 class BookController extends Controller
@@ -37,6 +38,7 @@ class BookController extends Controller
 
     public function create()
     {
-        return view("pages.book.create");
+        $categories = Auth::user()->categories;
+        return view("pages.book.create", ["categories" => $categories]);
     }
 }

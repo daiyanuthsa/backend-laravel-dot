@@ -20,6 +20,7 @@ class CategoryController extends Controller
     {
         $categories = Auth::user()->categories;
         return response()->json([
+            'success' => true,
             'data' => $categories
         ], 200);
     }
