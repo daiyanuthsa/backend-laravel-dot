@@ -19,15 +19,15 @@ class Authenticate extends Middleware
         }
     }
 
-    /**
-     * Override unauthenticated method to return custom response.
-     */
-    protected function unauthenticated($request, array $guards)
-    {
-        // Custom response for unauthorized access
-        throw new HttpResponseException(response()->json([
-            'success' => false,
-            'message' => 'You are not authorized to access this resource. Please log in.',
-        ], 401));
-    }
+    // /**
+    //  * Override unauthenticated method to return custom response.
+    //  */
+    // protected function unauthenticated($request, array $guards)
+    // {
+    //     // Custom response for unauthorized access
+    //     throw new HttpResponseException(response()->json([
+    //         'success' => false,
+    //         'message' => 'You are not authorized to access this resource. Please log in.',
+    //     ], 401));
+    // }
 }

@@ -12,12 +12,12 @@
     <title>@yield('title')</title>
     {{-- Stylesheet --}}
     @stack('prepend-style')
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link href="/css/main.css" rel="stylesheet" />
-    <link href="https://cdn.datatables.net/v/bs5/dt-1.13.8/fh-3.4.0/r-2.5.0/datatables.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link href="https://cdn.datatables.net/2.1.7/css/dataTables.dataTables.min.css" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"> --}}
     @stack('addon-style')
 
 </head>
@@ -56,7 +56,7 @@
                         <button class="btn btn-secondary d-md-none  mr-2" id="menu-toggle">
                             &laquo;Menu
                         </button>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-target="#navbarSupportedContent">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -66,7 +66,7 @@
                             <ul class="navbar-nav d-none d-lg-flex ml-auto">
                                 <li class="nav-item dropdown">
                                     <a href="#" class="nav-link" id="navbarDropdown" role="button"
-                                        data-toggle="dropdown">
+                                        data-bs-toggle="dropdown">
                                         <img src="/images/icon-user.png" alt="icon-user"
                                             class="rounded-circle mr-2 profile-picture" />
                                         Hi, Angga
@@ -98,12 +98,17 @@
 
     <!-- Bootstrap core JavaScript -->
     @stack('prepend-script')
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.datatables.net/v/bs5/dt-1.13.8/fh-3.4.0/r-2.5.0/datatables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"></script>
+
+    <script src="https:////cdn.datatables.net/2.1.7/js/dataTables.min.js"></script>
+    {{-- <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script> --}}
     <script>
         AOS.init();
     </script>

@@ -25,6 +25,10 @@ Route::middleware('auth')->group(function () {
     Route::prefix('book')->group(function () {
         Route::get('/', [BookController::class, 'index'])->name('book');
         Route::get('/create', [BookController::class, 'create'])->name('book-create');
+        Route::post('/store', [BookController::class, 'store'])->name('book.store');
+        Route::get('/edit/{id}', [BookController::class, 'edit'])->name('book.edit');
+        Route::put('/update/{id}', [BookController::class, 'update'])->name('book.update');
+        Route::delete('/delete/{id}', [BookController::class, 'destroy'])->name('book.delete');
     });
 
 });

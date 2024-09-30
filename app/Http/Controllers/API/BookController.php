@@ -89,6 +89,33 @@ class BookController extends Controller
         }
     }
 
+    public function show($id)
+    {
+        try {
+            $book = Book::whereHas('category', function ($query) {
+                $query->where('user_id', Auth::id());
+            })->findOrFail($id);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Book retrieved successfully',
+                'data' => $book,
+            ]);
+        } catch (ModelNotFoundException $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Book not found.',
+            ], 404);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred while retrieving the book.',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+    }
+
+
     public function update(Request $request, $id)
     {
         try {
