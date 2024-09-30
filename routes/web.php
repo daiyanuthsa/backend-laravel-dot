@@ -16,11 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::redirect('/', '/dashboard');
-
-Route::get('/dashboard', function () {
-    return view('pages.dashboard-books');
-})->middleware(['auth'])->name('dashboard');
+Route::redirect('/', '/book');
 
 Route::middleware('auth')->group(function () {
     Route::prefix('book')->group(function () {
