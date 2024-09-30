@@ -39,12 +39,11 @@
                     Buku
                 </a>
 
-                <a href="/"
-                    class="list-group-item list-group-item-action {{ request()->is('admin/category*') ? 'active' : '' }}">
-
+                <a href="{{ route('category.index') }}"
+                    class="list-group-item list-group-item-action {{ request()->is('category*') ? 'active' : '' }}">
                     Categories
                 </a>
-                <a href="#" class="list-group-item list-group-item-action">
+                <a href="{{ route('logout') }}" class="list-group-item list-group-item-action text-red">
                     Sign Out
                 </a>
             </div>
@@ -72,7 +71,14 @@
                                         Hi, Angga
                                     </a>
                                     <div class="dropdown-menu">
-                                        <a href="/index.html" class="dropdown-item">Logout</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            style="display: none;">
+                                            @csrf
+                                        </form>
+                                        <a href="#" class="dropdown-item"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
                                     </div>
                                 </li>
 

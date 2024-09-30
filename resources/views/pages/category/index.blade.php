@@ -8,26 +8,23 @@
     <section class="section-content section-dashboard-home" data-aos="fade-up">
         <div class="container-fluid">
             <div class="dashboard-heading">
-                <h2 class="dashboard-title">Buku</h2>
-                <p class="dashboard-subtitle">Kumpulan Buku Anda</p>
+                <h2 class="dashboard-title">Kategori</h2>
+                <p class="dashboard-subtitle">Kategori Buku Anda</p>
             </div>
             <div class="dashboard-content">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <a href="{{ route('book-create') }}" class="btn btn-primary mb-3">
-                                    + Tambah Buku
+                                <a href="{{ route('category.create') }}" class="btn btn-primary mb-3">
+                                    + Tambah Kategori
                                 </a>
                                 <div class="table-responsive">
                                     <table class="table table-hover scroll-horizontal-vertical w-100" id="crudtable">
                                         <thead>
                                             <tr>
-                                                <th>Judul Buku</th>
-                                                <th>Tahun</th>
-                                                <th>Penulis</th>
-                                                <th>Kategori</th>
-                                                <th>Aksi</th>
+                                                <th>Id</th>
+                                                <th>Nama Kategori</th>
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
@@ -53,20 +50,12 @@
                 console.log('Error:', error);
             },
             columns: [{
+                    data: 'id',
+                    name: 'id'
+                },
+                {
                     data: 'name',
                     name: 'name'
-                },
-                {
-                    data: 'year',
-                    name: 'year'
-                },
-                {
-                    data: 'author',
-                    name: 'author'
-                },
-                {
-                    data: 'category.name',
-                    name: 'category.name'
                 },
                 {
                     data: 'action',

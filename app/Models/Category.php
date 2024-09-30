@@ -65,6 +65,9 @@ class Category extends Model
         static::creating(function ($model) {
             $model->{$model->getKeyName()} = Uuid::uuid4()->toString();
         });
+        static::deleting(function ($category) {
+            $category->books()->delete();
+        });
     }
 
     /**

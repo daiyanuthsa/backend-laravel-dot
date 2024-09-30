@@ -23,7 +23,7 @@
                         @endif
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('book.update', $item->id) }}" method="post"
+                                <form action="{{ route('category.update', $category->id) }}" method="post"
                                     enctype="multipart/form-data">
                                     @method('PUT')
                                     @csrf
@@ -31,56 +31,17 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="name">
-                                                    Product Name
+                                                    Nama Kategori
                                                 </label>
                                                 <input type="text" name="name" class="form-control"
-                                                    value="{{ $item->name }}" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="name">
-                                                    Tahun Terbit
-                                                </label>
-                                                <select name="year" class="form-control" required>
-                                                    <option value="{{ $item->year }}" selected hidden>{{ $item->year }}
-                                                    </option>
-                                                    @for ($year = 1900; $year <= date('Y'); $year++)
-                                                        <option value="{{ $year }}"
-                                                            {{ $year == date('Y') ? 'selected' : '' }}>{{ $year }}
-                                                        </option>
-                                                    @endfor
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="name">
-                                                    Product Category
-                                                </label>
-                                                <select name="category_id" class="form-control" required>
-                                                    <option value="{{ $item->category_id }}" selected>
-                                                        {{ $item->category->name }}</option>
-                                                    @foreach ($categories as $category)
-                                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="name">
-                                                    Penulis Buku
-                                                </label>
-                                                <input type="text" value="{{ $item->author }}" name="author"
-                                                    class="form-control" required>
+                                                    value="{{ $category->name }}" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col text-right">
                                             <button type="submit" class="btn btn-success px-5">
-                                                Update
+                                                Simpan Kategori
                                             </button>
                                         </div>
                                     </div>
