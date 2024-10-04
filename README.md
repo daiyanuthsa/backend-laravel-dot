@@ -119,9 +119,21 @@ This is a Laravel project that implements a simple book management system with c
 | PUT    | `/api/books/{id}`      | Update a specific book                     |
 | DELETE | `/api/books/{id}`      | Delete a specific book                     |
 
-### API Authentication
+## Libraries Used
 
-For secure access to the API, you can use Laravel Passport or Sanctum. By default, the API is open. To protect your API, you can configure authentication middleware.
+The following libraries are utilized in this project:
+  
+- **laravel/breeze**: `1.9.2`
+  - Breeze provides a minimal and simple authentication system for Laravel applications, including registration, login, and password reset features.
+
+- **laravel/sanctum**: `^2.15`
+  - Sanctum provides a simple authentication system for SPA (Single Page Applications) or simple token-based APIs.
+
+- **ramsey/uuid**: `^4.7`
+  - A library for generating UUIDs in PHP, used for unique identification of records in the database.
+
+- **yajra/laravel-datatables**: `^1.5`
+  - A library that helps create advanced table features, such as searching, pagination, and sorting, with Eloquent models and database queries in Laravel.
 
 ## Dashboard
 
