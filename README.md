@@ -15,21 +15,22 @@ This is a Laravel project that implements a simple book management system with c
 
 ### users
 
-| Column       | Type      | Description                |
-|--------------|-----------|----------------------------|
-| id           | string    | Primary Key                |
-| email        | string    | User's email               |
-| password     | string    | User's password            |
-| name         | string    | User's name                |
-| created      | timestamp | Timestamp of creation      |
-| lastUpdated  | timestamp | Timestamp of last update   |
+| Column        | Type      | Description                |
+|---------------|-----------|----------------------------|
+| id            | string    | Primary Key                |
+| email         | string    | User's email               |
+| password      | string    | User's password            |
+| name          | string    | User's name                |
+| remember_token| string    | User's name                |
+| created_at    | timestamp | Timestamp of creation      |
+| updated_at    | timestamp | Timestamp of last update   |
 
 ### category
 
 | Column       | Type      | Description                |
 |--------------|-----------|----------------------------|
 | id           | string    | Primary Key                |
-| userId       | string    | Foreign Key to `users.id`   |
+| user_id      | string    | Foreign Key to `users.id`  |
 | name         | string    | Category name              |
 | created_at   | timestamp | Timestamp of creation      |
 | updated_at   | timestamp | Timestamp of last update   |
@@ -40,7 +41,7 @@ This is a Laravel project that implements a simple book management system with c
 | Column       | Type      | Description                |
 |--------------|-----------|----------------------------|
 | id           | integer   | Primary Key                |
-| categoryId   | string    | Foreign Key to `category.id`|
+| category_id  | string    | Foreign Key to `category.id`|
 | name         | string    | Book name                  |
 | year         | clob      | Book year                  |
 | author       | decimal   | Book author (decimal)      |
