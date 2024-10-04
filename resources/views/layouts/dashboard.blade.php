@@ -30,10 +30,6 @@
                 <div class="sidebar-heading text-center">
                     <img src="/images/admin.png" alt="" class="my-4" style="max-width: 150px" />
                 </div>
-                <a href="/dashboard"
-                    class="list-group-item list-group-item-action {{ request()->is('dashboard') ? 'active' : '' }}">
-                    Dashboard
-                </a>
                 <a href="{{ route('book') }}"
                     class="list-group-item list-group-item-action {{ request()->is('book*') ? 'active' : '' }}">
                     Buku
