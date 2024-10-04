@@ -104,20 +104,23 @@ This is a Laravel project that implements a simple book management system with c
 
 ## API Endpoints
 
-| Method | Endpoint              | Description                                |
-|--------|-----------------------|--------------------------------------------|
-| GET    | `/api/users`           | Get all users                              |
-| POST   | `/api/users`           | Create a new user                          |
-| GET    | `/api/categories`      | Get all categories                         |
-| POST   | `/api/categories`      | Create a new category                      |
-| GET    | `/api/categories/{id}` | Get a specific category                    |
-| PUT    | `/api/categories/{id}` | Update a specific category                 |
-| DELETE | `/api/categories/{id}` | Delete a specific category and its books   |
-| GET    | `/api/books`           | Get all books                              |
-| POST   | `/api/books`           | Create a new book                          |
-| GET    | `/api/books/{id}`      | Get a specific book                        |
-| PUT    | `/api/books/{id}`      | Update a specific book                     |
-| DELETE | `/api/books/{id}`      | Delete a specific book                     |
+
+| HTTP Method | URL                     | Description                       | Authentication Required |
+|-------------|-------------------------|-----------------------------------|-------------------------|
+| POST        | `/register`              | Register a new user               | No                      |
+| POST        | `/login`                 | Log in a user                     | No                      |
+| POST        | `/user/delete`           | Delete the authenticated user     | Yes                     |
+| GET         | `/category`              | Get a list of all categories      | Yes                     |
+| POST        | `/category/create`       | Create a new category             | Yes                     |
+| PUT         | `/category/edit/{id}`    | Update a category by ID           | Yes                     |
+| DELETE      | `/category/delete/{id}`  | Delete a category by ID           | Yes                     |
+| GET         | `/book`                  | Get a list of all books           | Yes                     |
+| POST        | `/book/create`           | Create a new book                 | Yes                     |
+| PUT         | `/book/edit/{id}`        | Update a book by ID               | Yes                     |
+| DELETE      | `/book/delete/{id}`      | Delete a book by ID               | Yes                     |
+
+---
+
 
 ## Libraries Used
 

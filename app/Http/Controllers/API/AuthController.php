@@ -40,6 +40,17 @@ class AuthController extends Controller
             ], 422); // HTTP 422 Unprocessable Entity for validation errors
         }
 
+        // Check if the email is already registered
+        if (User::where('email', $request->email)->exists()) {
+            return response()->json([
+                "success" => false,
+                "message" => "Email already registered",
+                "data" => [
+                    "email" => ["The email address is already in use."]
+                ]
+            ], 409); // HTTP 409 Conflict for resource conflict
+        }
+
         // Hash the password before storing in the database
         $hashedPassword = Hash::make($request->password);
 

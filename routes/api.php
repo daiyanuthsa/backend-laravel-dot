@@ -19,10 +19,6 @@ use App\Http\Controllers\API\AuthController;
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/user/delete', [AuthController::class, 'deleteUser']);
 
@@ -30,14 +26,14 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/', [CategoryController::class, 'index']);
         Route::post('create', [CategoryController::class, 'store']);
         Route::put('edit/{id}', [CategoryController::class, 'update']);
-        Route::post('delete/{id}', [CategoryController::class, 'delete']);
+        Route::delete('delete/{id}', [CategoryController::class, 'delete']);
     });
 
     Route::prefix('book')->group(function () {
         Route::get('/', [BookController::class, 'index']);
         Route::post('create', [BookController::class, 'store']);
-        Route::post('edit/{id}', [BookController::class, 'update']);
-        Route::post('delete/{id}', [BookController::class, 'destroy']);
+        Route::put('edit/{id}', [BookController::class, 'update']);
+        Route::delete('delete/{id}', [BookController::class, 'destroy']);
     });
 
 });
