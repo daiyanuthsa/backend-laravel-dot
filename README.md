@@ -58,8 +58,8 @@ This is a Laravel project that implements a simple book management system with c
 1. Clone the repository.
 
     ```bash
-    git clone <repository-url>
-    cd <project-folder>
+    git clone https://github.com/daiyanuthsa/backend-laravel-dot.git
+    cd backend-laravel-dot
     ```
 
 2. Install the dependencies.
@@ -103,7 +103,7 @@ This is a Laravel project that implements a simple book management system with c
     The application will run at `http://localhost:8000`.
 
 ## API Endpoints
-
+    For full API documentation :
 
 | HTTP Method | URL                     | Description                       | Authentication Required |
 |-------------|-------------------------|-----------------------------------|-------------------------|
