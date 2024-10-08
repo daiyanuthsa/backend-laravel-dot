@@ -15,21 +15,22 @@ This is a Laravel project that implements a simple book management system with c
 
 ### users
 
-| Column       | Type      | Description                |
-|--------------|-----------|----------------------------|
-| id           | string    | Primary Key                |
-| email        | string    | User's email               |
-| password     | string    | User's password            |
-| name         | string    | User's name                |
-| created      | timestamp | Timestamp of creation      |
-| lastUpdated  | timestamp | Timestamp of last update   |
+| Column        | Type      | Description                |
+|---------------|-----------|----------------------------|
+| id            | string    | Primary Key                |
+| email         | string    | User's email               |
+| password      | string    | User's password            |
+| name          | string    | User's name                |
+| remember_token| string    | User's name                |
+| created_at    | timestamp | Timestamp of creation      |
+| updated_at    | timestamp | Timestamp of last update   |
 
 ### category
 
 | Column       | Type      | Description                |
 |--------------|-----------|----------------------------|
 | id           | string    | Primary Key                |
-| userId       | string    | Foreign Key to `users.id`   |
+| user_id      | string    | Foreign Key to `users.id`  |
 | name         | string    | Category name              |
 | created_at   | timestamp | Timestamp of creation      |
 | updated_at   | timestamp | Timestamp of last update   |
@@ -40,7 +41,7 @@ This is a Laravel project that implements a simple book management system with c
 | Column       | Type      | Description                |
 |--------------|-----------|----------------------------|
 | id           | integer   | Primary Key                |
-| categoryId   | string    | Foreign Key to `category.id`|
+| category_id  | string    | Foreign Key to `category.id`|
 | name         | string    | Book name                  |
 | year         | clob      | Book year                  |
 | author       | decimal   | Book author (decimal)      |
@@ -58,8 +59,8 @@ This is a Laravel project that implements a simple book management system with c
 1. Clone the repository.
 
     ```bash
-    git clone <repository-url>
-    cd <project-folder>
+    git clone https://github.com/daiyanuthsa/backend-laravel-dot.git
+    cd backend-laravel-dot
     ```
 
 2. Install the dependencies.
@@ -103,7 +104,7 @@ This is a Laravel project that implements a simple book management system with c
     The application will run at `http://localhost:8000`.
 
 ## API Endpoints
-
+    For full API documentation :
 
 | HTTP Method | URL                     | Description                       | Authentication Required |
 |-------------|-------------------------|-----------------------------------|-------------------------|
