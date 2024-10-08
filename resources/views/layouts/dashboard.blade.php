@@ -64,7 +64,7 @@
                                         data-bs-toggle="dropdown">
                                         <img src="/images/icon-user.png" alt="icon-user"
                                             class="rounded-circle mr-2 profile-picture" />
-                                        Hi, Angga
+                                        Hi, {{ Auth::user()->name }}
                                     </a>
                                     <div class="dropdown-menu">
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
