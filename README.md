@@ -10,7 +10,10 @@ This is a Laravel project that implements a simple book management system with c
 - CRUD (Create, Read, Update, Delete) operations for users, categories, and books.
 - API to interact with users, categories, and books.
 - Simple dashboard to manage categories and books.
-  
+
+## Screen Shots
+    ![Category Feature](https://raw.githubusercontent.com/daiyanuthsa/backend-laravel-dot/refs/heads/main/public/images/categories-index.png)
+    ![Book Feature](https://raw.githubusercontent.com/daiyanuthsa/backend-laravel-dot/refs/heads/main/public/images/book-feature.png)
 ## Database Structure
 
 ### users
@@ -89,13 +92,8 @@ This is a Laravel project that implements a simple book management system with c
     php artisan migrate
     ```
 
-6. Seed the database (optional).
 
-    ```bash
-    php artisan db:seed
-    ```
-
-7. Run the application.
+6. Run the application.
 
     ```bash
     php artisan serve
@@ -105,6 +103,7 @@ This is a Laravel project that implements a simple book management system with c
 
 ## API Endpoints
     For full API documentation :
+
 
 | HTTP Method | URL                     | Description                       | Authentication Required |
 |-------------|-------------------------|-----------------------------------|-------------------------|
