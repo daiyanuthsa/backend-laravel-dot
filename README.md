@@ -12,8 +12,11 @@ This is a Laravel project that implements a simple book management system with c
 - Simple dashboard to manage categories and books.
 
 ## Screen Shots
-    ![Category Feature](https://raw.githubusercontent.com/daiyanuthsa/backend-laravel-dot/refs/heads/main/public/images/categories-index.png)
-    ![Book Feature](https://raw.githubusercontent.com/daiyanuthsa/backend-laravel-dot/refs/heads/main/public/images/book-feature.png)
+### Book Category
+![Category Feature](https://raw.githubusercontent.com/daiyanuthsa/backend-laravel-dot/refs/heads/main/public/images/categories-index.png)
+### Book
+![Book Feature](https://raw.githubusercontent.com/daiyanuthsa/backend-laravel-dot/refs/heads/main/public/images/book-feature.png)
+
 ## Database Structure
 
 ### users
